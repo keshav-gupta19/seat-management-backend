@@ -23,6 +23,7 @@ const pool = new Pool({
 
 // Get all seats
 app.get("/seats", async (req, res) => {
+  console.log(process.env.DATABASE_URL);
   try {
     const result = await pool.query("SELECT * FROM seats ORDER BY seat_number");
     res.json(result.rows);
